@@ -19,7 +19,17 @@
                     <li> <a href="/">Home</a> </li>
                     <li> <a href="#about">About</a> </li>
                     <li> <a href="#contact">Contact</a> </li>
+
+                    {% if user.is_authenticated %}
+
+                    <li> <a href="logout">Logout</a> </li>
+
+                    {% else %}
+
                     <li> <a href="login">Login</a> </li>
+
+                    {% endif %}
+                    
                 </ul>
             </nav>
         </div>
@@ -29,20 +39,22 @@
         </div>
     </header>
 
+    {% for post in posts reversed %}
+
     <section>
         <article>
-            <h3 class="title"> <a href="post"> Steps to effective time management </a></h3>
-            <div class="author">By Obiefuna Kingsley, 2022-06-18</div>
+            <h3 class="title"> <a href="post/{{post.id}}"> {{post.title}} </a></h3>
+            <div class="author">By {{post.author}}, On {{post.date}}</div>
             <div class="content">
                 <img src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
                 <p>
-                    Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                    tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum facere! ... <a href="post">read more</a>
+                    {{post.content | truncatechars:200}} <a href="post/{{post.id}}">read more</a>
                 </p>
             </div>
         </article>
     </section>
+
+    {% endfor %}
 
     <footer>
         <div class="container">

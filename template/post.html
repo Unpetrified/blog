@@ -19,9 +19,20 @@
                         <li> <a href="/">Home</a> </li>
                         <li> <a href="#about">About</a> </li>
                         <li> <a href="#contact">Contact</a> </li>
+    
+                        {% if user.is_authenticated %}
+    
+                        <li> <a href="logout">Logout</a> </li>
+    
+                        {% else %}
+    
                         <li> <a href="login">Login</a> </li>
+    
+                        {% endif %}
+                        
                     </ul>
                 </nav>
+
             </div>
               
             <div id="motto">
@@ -33,84 +44,35 @@
             <article>
                 <div class="content">
                     <img src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
-                    <h3>Steps to effective time management</h3>
-                    <div class="author">By Obiefuna Kingsley, 2022-06-18</div>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                        Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem 
-                        tempore nihil fugiat est voluptate cupiditate officia soluta, aut omnis ipsa dolores odit libero laborum 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quae pariatur non ab nam quis, adipisci ipsum qu
-                        ia, itaque dicta fugit aliquam? Perspiciatis recusandae dolore voluptatem beatae ab debitis veritatis.
-                    </p>
+                    <h3>{{article.title}}</h3>
+                    <div class="author">By {{article.author}}, {{article.date}}</div>
+                    <p>{{article.content}}</p>
                 </div>
             </article>
         </section>
         
     <div class="recent">RECENT POST</div>
 
+    {% for post in posts reversed %}
+
+    {% if post.id != article.id %}
+
     <div>
         <article>
-            <h3 class="title"> <a href="post"> Steps to effective time management </a></h3>
-            <div class="recent-author">By Obiefuna Kingsley, 2022-06-18</div>
+            <h3 class="title"> <a href="/post/{{post.id}}"> {{post.title}} </a></h3>
+            <div class="recent-author">By {{post.author}}, {{post.date}}</div>
             <div class="recent-content">
-                <img src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
+                <img class="images" src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
                 <p>
-                    <a href="post">Lorem, ipsum dolor sit amet consectetu laborum enim numquam ducimus illum hic!Lorem Lorem ipsum dolor sit amet lore
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure neque at repellat ratione exercitationem</a> 
+                    <a href="post/{{post.id}}">{{post.content | truncatechars:200}}</a> 
                 </p>
             </div>
         </article>
     </div>
+
+    {% endif %}
+
+    {% endfor %}
     
         <footer>
             <div class="container">

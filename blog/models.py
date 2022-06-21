@@ -10,5 +10,5 @@ class Post(models.Model):
     author = models.CharField(default="", max_length=100)
     title = models.CharField(max_length=100)
     date = models.DateTimeField(default=datetime.now, blank=True)
-    content = models.TextField(default="", max_length=100000)
+    content = models.TextField(default="", max_length=1000000)
     photo = models.ImageField(upload_to='images/')

@@ -5,7 +5,8 @@ from blog import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('post', views.post, name='post'),
+    path('post/<str:pk>', views.post, name='post'),
     path('login', views.login, name='login'),
-    path('register', views.register, name='register')
+    path('register', views.register, name='register'),
+    path('logout', views.logout, name='logout'),
 ]

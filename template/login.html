@@ -22,8 +22,18 @@
 
         <div class="register">Login</div>
         
-        <form action="/">
+        <form action="login" method="POST">
             
+            {% csrf_token %}
+
+            {% for message in messages %}
+                
+            <div class="error">
+                {{message}}
+            </div>
+            
+            {% endfor %}
+
             <input type="text" name="username" placeholder="Username" onfocus="focus(this);" onchange="check(this);" onmouseout="out(this);">
             <input type="password" name="password" placeholder="Password">
             <input type="submit" value="Login">

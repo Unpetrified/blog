@@ -22,15 +22,29 @@
 
         <div class="register">Register</div>
         
-        <form action="login" method="POST">
+        <form action="register" method="POST">
             {% csrf_token %}
 
+            {% for message in messages %}
+                
+            <div class="error">
+                {{message}}
+            </div>
+            
+            {% endfor %}
+
             <input type="text" name="firstName" placeholder="Enter first name">
+            
             <input type="text" name="lastName" placeholder="Enter last name">
-            <input type="email" name="email" placeholder="Enter email" onfocus="focus(this);" onchange="check(this);" onmouseout="out(this);">
-            <input type="text" name="username" placeholder="Choose username" onfocus="focus(this);" onchange="check(this);" onmouseout="out(this);">
+            
+            <input type="email" name="email" placeholder="Enter email">
+
+            <input type="text" name="username" placeholder="Choose username">
+          
             <input type="password" name="password" placeholder="Password">
+          
             <input type="password" name="password2" placeholder="Confirm password">
+          
             <input type="submit" value="Register">
 
             <div class="register-link">Already a member? <a href="login">Login</a></div>
