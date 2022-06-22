@@ -48,6 +48,10 @@ def register(request):
 
         if password == password2:
 
+            if len(password) < 8:
+                messages.info(request, 'password must be greater than 8 character')
+                return redirect('register')
+
             if User.objects.filter(username=username).exists():
 
                 messages.info(request, 'username already taken')

@@ -19,11 +19,11 @@
                 ...tech is for the disciplined and strong-willed
             </div>
         </header>
-
-        <div class="register">Register</div>
         
         <form action="register" method="POST">
             {% csrf_token %}
+
+            <div class="register">Register</div>
 
             {% for message in messages %}
                 
