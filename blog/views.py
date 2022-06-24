@@ -29,7 +29,7 @@ def login(request):
         
         else:
             if User.objects.filter(username= username).exists():
-                messages.info(request, 'incorrect password')
+                messages.info(request, 'incorrect password. forgot password?')
             else:
                 messages.info(request, 'invalid username')
             return redirect('login')
@@ -75,3 +75,19 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def password_reset(request):
+    
+    if request.method == 'POST':
+        email = request.POST['email']
+        if User.objects.filter(email=email).exists():
+            return redirect('prc')
+        else:
+            messages.info(request, "Email does not exist in our database")
+            return redirect('password_reset')
+
+    return render(request, 'password_reset.html')
+
+def password_reset_confirmation(request):
+
+    return render(request, 'prc.html')

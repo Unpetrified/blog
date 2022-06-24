@@ -19,11 +19,11 @@ header {
 }
 
 #header a img {
-    width: 20%;
+    width: 50%;
 }
 
 #header nav {
-    align-self: flex-end;
+    align-self: center;
 }
 
 #motto {
@@ -51,10 +51,6 @@ nav ul li:hover {
     box-shadow: 1px 2px 5px white;
 }
 
-#header nav ul img {
-    width: 20px;
-}
-
 nav a {
     text-decoration: none;
     color: black;
@@ -62,7 +58,7 @@ nav a {
 
 section {
     margin: 15px 5%;
-    padding: 8px 8px;
+    padding: 8px;
     width: 90%;
     text-align: justify;
     border-radius: 15px;
@@ -147,9 +143,7 @@ section article a:hover {
 }
 
 #me {
-    align-self: center;
-    border-radius: 200px;
-    margin-bottom: 10px;
+    width: 100%;
 }
 
 #bio {
@@ -177,4 +171,256 @@ section article a:hover {
 a img {
     width: 20px;
     margin: 0px 15px;
+}
+
+@media (max-width : 320px) {
+
+    body {
+        font-size: .45rem;
+    }
+
+    header {
+        padding: 2px;
+    }
+    
+    #header a img {
+        width: 30vw;
+    }
+
+    #motto {
+        font-size: .4rem;
+        margin: 0;
+    }
+
+    nav ul li {
+        padding: 2px;
+        font-size: .4rem;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 0 2px;
+    }
+
+    section {
+        margin: 10px 5%;
+        padding: 6px;
+    }
+
+    section article h3 {
+        font-size: small;
+    }
+
+    .author {
+        font-size: .35rem;
+        margin-bottom: 5px;
+    }
+
+    .content img {
+        border-radius: 5px;
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    section article p {
+        margin-top: 0;
+        font-size: .55rem;
+    }
+
+    section article p a {
+        padding: 2px;
+    }
+
+    a img {
+        width: 10px;
+        margin: 00 10px;
+    }
+
+}
+
+@media (min-width : 320px) and (max-width : 425px) {
+
+    body {
+        font-size: .45rem;
+    }
+
+    header {
+        padding: 2px;
+    }
+    
+    #header a img {
+        width: 90%;
+    }
+
+    #motto {
+        font-size: .4rem;
+        margin: 0;
+    }
+
+    nav ul li {
+        padding: 2px;
+        font-size: xx-small;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 0 2px;
+    }
+
+    section {
+        margin: 10px 5%;
+        padding: 6px;
+    }
+
+    section article h3 {
+        font-size: small;
+    }
+
+    .author {
+        font-size: .35rem;
+        margin-bottom: 5px;
+    }
+
+    .content img {
+        border-radius: 5px;
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    section article p {
+        margin-top: 0;
+        font-size: .55rem;
+    }
+
+    section article p a {
+        padding: 2px;
+    }
+
+    a img {
+        width: 10px;
+        margin: 00 10px;
+    }
+
+}
+
+@media (min-width : 425px) and (max-width : 550px) {
+
+    body {
+        font-size: .45rem;
+    }
+
+    header {
+        padding: 2px;
+    }
+    
+    #header a img {
+        width: 80%;
+    }
+
+    #motto {
+        font-size: .4rem;
+        margin: 0;
+    }
+
+    nav ul li {
+        padding: 3px 5px;
+        font-size: x-small;
+        border: 1px solid white;
+        border-radius: 20px;
+        margin: 0 5px;
+    }
+
+    section {
+        margin: 10px 5%;
+        padding: 6px;
+    }
+
+    section article h3 {
+        font-size: small;
+    }
+
+    .author {
+        font-size: .35rem;
+        margin-bottom: 5px;
+    }
+
+    .content img {
+        border-radius: 5px;
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    section article p {
+        margin-top: 0;
+        font-size: .55rem;
+    }
+
+    section article p a {
+        padding: 2px;
+    }
+
+    a img {
+        width: 15px;
+        margin: 0 15px;
+    }
+
+}
+
+@media (min-width : 550px) and (max-width : 800px) {
+
+    body {
+        font-size: .6rem;
+    }
+
+    header {
+        padding: 2px;
+    }
+    
+    #header a img {
+        width: 50%;
+    }
+
+    #motto {
+        font-size: .4rem;
+        margin: 0;
+    }
+
+    nav ul li {
+        padding: 3px 10px;
+        font-size: small;
+        border: 1px solid white;
+        border-radius: 20px;
+        margin: 0 .5em;
+    }
+
+    section {
+        margin: 10px 5%;
+        padding: 6px;
+    }
+
+    section article h3 {
+        font-size: medium;
+    }
+
+    .author {
+        font-size: .35rem;
+        margin-bottom: 5px;
+    }
+
+    .content img {
+        border-radius: 5px;
+        width: 20%;
+        margin-right: 10px;
+    }
+
+    section article p {
+        margin-top: 0;
+        font-size: .65rem;
+    }
+
+    section article p a {
+        padding: 2px;
+    }
+
+    a img {
+        width: 15px;
+        margin: 0 15px;
+    }
+
 }

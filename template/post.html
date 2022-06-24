@@ -5,11 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinger</title>
+    <title>Kinger | Post</title>
     <link rel="icon" href="{% static 'media\Logo\logo.png' %}">
     <link rel="stylesheet" href="{% static 'css\post.css' %}">
 </head>
     <body>
+
+        {% if user.is_superuser %}
+            <script>
+                alert("Hello admin");
+            </script>
+        {% endif %}
+
         <header>
             <div id="header">
                 <a href=""><img src="{% static 'media\Logo\head.png' %}" alt="kinger" id="img-header"></a>    
@@ -43,7 +50,7 @@
         <section>
             <article>
                 <div class="content">
-                    <img src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
+                    <img src="{{article.photo.url}}" alt="title">
                     <h3>{{article.title}}</h3>
                     <div class="author">By {{article.author}}, {{article.date}}</div>
                     <p>{{article.content}}</p>
@@ -62,9 +69,9 @@
             <h3 class="title"> <a href="/post/{{post.id}}"> {{post.title}} </a></h3>
             <div class="recent-author">By {{post.author}}, {{post.date}}</div>
             <div class="recent-content">
-                <img class="images" src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
+                <img class="images" src="{{post.photo.url}}" alt="title">
                 <p>
-                    <a href="post/{{post.id}}">{{post.content | truncatechars:200}}</a> 
+                    <a href="/post/{{post.id}}">{{post.content | truncatechars:200}}</a> 
                 </p>
             </div>
         </article>

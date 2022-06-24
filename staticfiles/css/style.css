@@ -1,0 +1,174 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    font-size: small;
+    color: rgba(0, 0, 0, 0.89);
+    background-color: rgb(230, 228, 228);
+}
+
+header {
+    background-color: rgb(26, 71, 96);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+}
+
+#header a img {
+    width: 20%;
+}
+
+#header nav {
+    align-self: flex-end;
+}
+
+#motto {
+    font-size: x-small;
+    font-style: italic;
+    margin-left: 20px;
+}
+
+#header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 0 20px;
+    font-size: medium;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: white;
+    margin: 0 5px;
+}
+
+nav ul li:hover {
+    background-color: rgb(246, 246, 246);
+    box-shadow: 1px 2px 5px white;
+}
+
+#header nav ul img {
+    width: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+section article h3 {
+    font-size: xx-large;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.author {
+    font-size: x-small;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+.title a {
+    text-decoration: none;
+    color: rgb(17, 17, 17);
+}
+
+.title a:hover { 
+    background-color: inherit;
+    color: black;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.content img {
+    border-radius: 20px;
+    width: 15%;
+    height: 20%;
+    border: 1px solid rgba(43, 43, 43, 0.363);
+    box-sizing: border-box;
+    margin-right: 25px;
+}
+
+.content img:hover {
+    box-shadow: 1px 1px 5px 1px rgba(50, 50, 50, 0.342);
+}
+
+section {
+    margin: 8px 5%;
+    padding: 8px 8px;
+    width: 90%;
+    text-align: justify;
+    border-radius: 5px;
+}
+
+section article p {
+    margin-top: 0px;
+    width: 60%;
+    box-sizing: border-box;
+    margin-left: 2%;
+    font-size: medium;
+}
+
+section article p a {
+    text-decoration: none;
+    color: rgb(207, 207, 207);
+    border: 2px solid black;
+    padding: 0 5px;
+    border-radius: 15px;
+    background-color: rgb(37, 37, 37);
+    display: inline-block;
+}
+
+section article a:hover {
+    color: white;
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.me {
+    display: flex;
+}
+
+#me {
+    align-self: center;
+    border-radius: 200px;
+    margin-bottom: 10px;
+}
+
+#bio {
+    align-self: center;
+    width: 80%;
+    text-align: justify;
+}
+
+.row {
+    align-self: center;
+    margin: 10px;
+    font-weight: bold;
+    color: black;
+    display: inline-block;
+}
+
+#social {
+    align-self: center;
+}
+
+#social a {
+    text-decoration: none;
+}
+
+a img {
+    width: 20px;
+    margin: 0px 15px;
+}

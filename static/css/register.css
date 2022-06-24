@@ -1,7 +1,7 @@
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: lighter;
-    font-size: small;
+    font-size: 1rem;
     color: rgba(0, 0, 0, 0.836);
     background-color: rgb(230, 228, 228);
 }
@@ -34,18 +34,28 @@ header {
 }
 
 .register {
-    font-size: x-large;
+    font-size: 2rem;
     font-weight: 900;
     color: black;
     text-align: center;
+}
+
+.password {
+    background-color: rgba(255, 0, 0, 0.178);
+    color: rgba(255, 0, 0, 0.733);
+    width: 50%;
+    margin-left: 5%;
+    border: 1px dashed red;
+    padding-left: 2px;
+    text-decoration: none;
 }
 
 form {
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
-    width: 40%;
-    margin: 20px 30%;
+    width: 60%;
+    margin: 20px 20%;
     padding: 10px 0;
     border-radius: 20px;
     box-shadow: 2px 2px 10px 2px rgb(100, 100, 100);
@@ -67,9 +77,12 @@ form input {
 }
 
 .error {
-    color: rgb(252, 39, 39);
-    margin: 0;
+    background-color: rgba(255, 0, 0, 0.178);
+    color: rgba(255, 0, 0, 0.733);
+    width: 50%;
     margin-left: 5%;
+    border: 1px dashed red;
+    padding-left: 2px;
 }
 
 form input:focus {
@@ -116,3 +129,54 @@ form input[type = submit]:hover {
 .register-link a {
     text-decoration: none;
 }
+
+.notify {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 15em;
+    margin: 1em 10%;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 2px 2px 10px 2px rgb(100, 100, 100);
+}
+
+.notify:hover {
+    box-shadow: 2px 2px 10px 2px rgb(80, 80, 80);
+}
+
+.notify > h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: black;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.notify > div {
+    margin: .3rem 10%;
+}
+
+@media (max-width : 760px) {
+
+    #motto {
+        font-size: .35rem;
+    }
+
+    form {
+        width: 80%;
+        margin: 20px 10%;
+    }
+
+    form input[type=submit] {
+        font-size: .5rem;
+        width: 30%;
+        margin: 10px 35%;
+        padding: 0;
+    }
+
+    .register-link {
+        font-size: .5rem;
+    }
+}
+

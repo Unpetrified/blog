@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinger</title>
+    <title>Kinger | Home</title>
     <link rel="icon" href="{% static 'media\Logo\logo.png' %}">
     <link rel="stylesheet" href="{% static 'css\style.css' %}">
 </head>
@@ -46,7 +46,7 @@
             <h3 class="title"> <a href="post/{{post.id}}"> {{post.title}} </a></h3>
             <div class="author">By {{post.author}}, On {{post.date}}</div>
             <div class="content">
-                <img src="{% static 'media\Images\calendar-planner-agenda-schedule-concept.jpg' %}" alt="title">
+                <img src="{{post.photo.url}}" alt="title">
                 <p>
                     {{post.content | truncatechars:200}} <a href="post/{{post.id}}">read more</a>
                 </p>

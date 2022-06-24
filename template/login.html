@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinger</title>
+    <title>Kinger | Login</title>
     <link rel="icon" href="{% static 'media\Logo\logo.png' %}">
     <link rel="stylesheet" href="{% static 'css\register.css' %}">
 </head>
@@ -24,18 +24,20 @@
             {% csrf_token %}
 
             <div class="register">Login</div>
-            
-
-            {% for message in messages %}
-                
-            <div class="error">
-                {{message}}
-            </div>
-            
-            {% endfor %}
 
             <input type="text" name="username" placeholder="Username" onfocus="focus(this);" onchange="check(this);" onmouseout="out(this);">
             <input type="password" name="password" placeholder="Password">
+
+            {% for message in messages %}
+
+            <a href="password_reset" class="password">
+
+                {{message}}
+            
+            </a>
+
+            {% endfor %}
+
             <input type="submit" value="Login">
 
             <div class="register-link">Not a member? <a href="register">Register</a></div>
