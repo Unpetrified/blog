@@ -29,7 +29,7 @@ def login(request):
         
         else:
             if User.objects.filter(username= username).exists():
-                messages.info(request, 'incorrect password. forgot password?')
+                messages.info(request, 'incorrect password')
             else:
                 messages.info(request, 'invalid username')
             return redirect('login')

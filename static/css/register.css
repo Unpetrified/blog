@@ -79,7 +79,7 @@ form input {
 .error {
     background-color: rgba(255, 0, 0, 0.178);
     color: rgba(255, 0, 0, 0.733);
-    width: 50%;
+    width: fit-content;
     margin-left: 5%;
     border: 1px dashed red;
     padding-left: 2px;
