@@ -5,111 +5,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinger | Post</title>
     <link rel="icon" href="{% static 'media\Logo\logo.png' %}">
     <link rel="stylesheet" href="{% static 'css\post.css' %}">
+    <title>Unpetrified | Post</title>
 </head>
-    <body>
 
-        {% if user.is_superuser %}
-            <script>
-                alert("Hello admin");
-            </script>
-        {% endif %}
+    {% if user.is_superuser %}
+        <script>
+            alert("Hello admin");
+        </script>
+    {% endif %}
 
-        <header>
-            <div id="header">
-                <a href=""><img src="{% static 'media\Logo\head.png' %}" alt="kinger" id="img-header"></a>    
-    
-                <nav>
-                    <ul>
-                        <li> <a href="/">Home</a> </li>
-                        <li> <a href="#about">About</a> </li>
-                        <li> <a href="#contact">Contact</a> </li>
-    
-                        {% if user.is_authenticated %}
-    
-                        <li> <a href="/logout">Logout</a> </li>
-    
-                        {% else %}
-    
-                        <li> <a href="/login">Login</a> </li>
-    
-                        {% endif %}
-                        
-                    </ul>
-                </nav>
-
-            </div>
-              
-            <div id="motto">
-                ...tech is for the disciplined and strong-willed
-            </div>
-        </header>
-
-        <section>
-            <article>
-                <div class="content">
-                    <img src="{{article.photo.url}}" alt="title">
-                    <h3>{{article.title}}</h3>
-                    <div class="author">By {{article.author}}, {{article.date}}</div>
-                    <p>{{article.content}}</p>
-                </div>
-            </article>
-        </section>
+    <div class="page-heading">
         
-    <div class="recent">RECENT POST</div>
+        <a href="/"><img src="{% static 'media\Logo\head.png' %}" alt="logo"></a>
+        
+        <input type="checkbox" class="nav-toggle" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        
+        <nav>
+            <ul>
+                <li> <a href="/">Home</a> </li>
+                <li> <a href="#about">About</a> </li>
+                <li> <a href="#contact">Contact</a> </li>
+                
+                {% if user.is_authenticated %}
+
+                    <li> <a href="/logout">Logout</a> </li>
+
+                {% else %}
+
+                    <li> <a href="/login">Login</a> </li>
+
+                {% endif %}
+                    
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="content">
+
+        <img src="{{article.photo.url}}" alt="">
+
+        <h4>{{article.title}}</h4>
+        <span>By {{article.author}}, {{article.date}}</span>
+
+        <p> {{article.content}} </p>
+
+    </div>
+
+    <span class="rule"></span>
+
+    <div class="comments">
+        <div class="row">COMMENTS</div>
+
+        {% for comment in comments %}
+
+        <div class="comment">
+            <h5>{{comment.name}}</h5>
+            <p>
+                {{comment.text}}
+            </p>
+            <div>
+                {{comment.date}}
+            </div>
+        </div>
+
+        {% endfor %}
+        
+        <form action="comment" method="POST">
+            <input type="text" name="comment" placeholder="what do you think?">
+            <input type="submit" value="comment">
+        </form>
+    </div>
+
+    <div class="row">RECENT POST</div>
 
     {% for post in posts reversed %}
 
     {% if post.id != article.id %}
 
-    <div>
-        <article>
-            <h3 class="title"> <a href="/post/{{post.id}}"> {{post.title}} </a></h3>
-            <div class="recent-author">By {{post.author}}, {{post.date}}</div>
-            <div class="recent-content">
-                <img class="images" src="{{post.photo.url}}" alt="title">
-                <p>
-                    <a href="/post/{{post.id}}">{{post.content | truncatechars:200}}</a> 
-                </p>
-            </div>
-        </article>
+    <div class="card">
+        <div class="head">
+            <a href="/post/{{post.id}}"><h3>{{post.title}}</h3></a>
+        </div>
+        <a href="/post/{{post.id}}">
+            <img src="{{post.photo.url}}" alt="">
+        </a>
+        <p>
+            {{post.content | truncatechars:200}}
+        </p>
     </div>
 
     {% endif %}
 
     {% endfor %}
     
-        <footer>
-            <div class="container">
-                
-                <div class="row" id="about">
-                    ABOUT ME
-                </div>            
-                
-                <img id="me" src="{% static 'media\Images\1655416720641.jpg' %}" alt="photo of me">
-                
-                <div id="bio">
-                    As a kid I always found computers interesting and believed it worked like magic.
-                    Gradually I started to learn and appreciate the processes behind its operation.
-                    The deeper I dive the more I believe it is magic &#128516
-                </div>
-                
-                <div class="row" id="contact">
-                    CONTACT ME
-                </div>
+    <div class="row" id="about">
+        ABOUT ME
+    </div>
 
-                <div class="row" id="social">
-                    <a href="https://www.facebook.com/Capt.kingsley"> <img src="{% static 'media\Logo\fb.png' %}" alt="facebook"> </a>
+    <div class="about-me">
+        <img id="me" src="{% static 'media\Images\1655416720641.jpg' %}" alt="photo of me">
+            
+        <div>
+            As a kid I always found computers interesting and believed it worked like magic.
+            Gradually I started to learn and appreciate the processes behind its operation.
+            The deeper I dive the more I believe it is magic &#128516
+        </div>
+    </div>
+
+    <div class="row" id="contact">
+        CONTACT ME
+    </div>
+
+    <div class="row" id="social">
+        <a href="https://www.facebook.com/Capt.kingsley"> <img src="{% static 'media\Logo\fb.png' %}" alt="facebook"> </a>
                     <a href="https://twitter.com/tochukwu0bi?t=nh8C9LpLdH5GvDFaRp4bAQ&s=09"> <img src="{% static 'media\Logo\twitter.png' %}" alt="twitter"> </a>
                     <a href="https://github.com/Unpetrified"> <img src="{% static 'media\Logo\github.png' %}" alt="instagram"> </a>
                     <a href="https://www.linkedin.com/in/kingsley-obiefuna-a6223b1a6"> <img src="{% static 'media\Logo\linkedin.png' %}" alt="linkedin"> </a>
                     <a href="https://wa.me/message/Y5YELZZRXJCXC1"> <img src="{% static 'media\Logo\whatapp.png' %}" alt="whatapp"> </a>
-                </div>
+    </div>
+
+    <script src="{% static 'js\index.js' %}"></script>
     
-            </div>
-        </footer>
-        <script src="{% static 'js\index.js' %}"></script>
     </body>  
 </html>

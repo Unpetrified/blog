@@ -5,20 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinger | Register</title>
+    <title>Unpetrified | Register</title>
     <link rel="icon" href="{% static 'media\Logo\logo.png' %}">
     <link rel="stylesheet" href="{% static 'css\register.css' %}">
 </head>
     <body>
-        <header>
-            <div id="header">
-                <a href="/"><img src="{% static 'media\Logo\head.png' %}" alt="kinger" id="img-header"></a>
-            </div>
-            
-            <div id="motto">
-                ...tech is for the disciplined and strong-willed
-            </div>
-        </header>
+        
+        <div class="page-heading">
+        
+            <a href="/"><img src="{% static 'media\Logo\head.png' %}" alt="logo"></a>
+    
+        </div>
         
         <form action="register" method="POST">
             {% csrf_token %}
@@ -32,19 +29,19 @@
             </div>
             
             {% endfor %}
-
+            
             <input type="text" name="firstName" placeholder="Enter first name">
             
             <input type="text" name="lastName" placeholder="Enter last name">
             
             <input type="email" name="email" placeholder="Enter email">
-
+            
             <input type="text" name="username" placeholder="Choose username">
-          
+            
             <input type="password" name="password" placeholder="Password">
-          
+            
             <input type="password" name="password2" placeholder="Confirm password">
-          
+            
             <input type="submit" value="Register">
 
             <div class="register-link">Already a member? <a href="login">Login</a></div>

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ey31(z&sj-%1q=hsq&2@ez1fyo8=b@$#n!_+phz+m)tgdgc(q@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['kinged.herokuapp.com', 'http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['kinged.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -130,6 +130,8 @@ MEDIA_ROOT = BASE_DIR/'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USER = 'kingsleyobiefuna01@gmail.com'
+EMAIL_PASSWORD = '*****'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
