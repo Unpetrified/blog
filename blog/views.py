@@ -1,8 +1,9 @@
-import re
+from datetime import datetime
+from posixpath import split
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import Post
+from .models import Post, Comment
 
 def index(request):
     posts = Post.objects.all()
@@ -10,9 +11,15 @@ def index(request):
 
 def post(request, pk):
     article = Post.objects.get(id=pk)
+    split_article = article.content.split("\n")
     posts = Post.objects.all()
-
-    data = {'article' : article, 'posts' : posts}
+    comments = Comment.objects.filter(comment_id = pk)
+    data = {
+        'article' : article,
+        'contents' : split_article,
+        'posts' : posts,
+        'comments' : comments
+    }
     return render(request, 'post.html', data)
 
 def login(request):
@@ -73,21 +80,13 @@ def register(request):
     return render(request, 'register.html')
 
 def logout(request):
+    
     auth.logout(request)
     return redirect('/')
 
-def password_reset(request):
-    
-    if request.method == 'POST':
-        email = request.POST['email']
-        if User.objects.filter(email=email).exists():
-            return redirect('prc')
-        else:
-            messages.info(request, "Email does not exist in our database")
-            return redirect('password_reset')
-
-    return render(request, 'password_reset.html')
-
-def password_reset_confirmation(request):
-
-    return render(request, 'prc.html')
+def comment(request, post_id):
+    author = request.user.get_username()
+    comment_message = request.POST['comment']
+    comment = Comment.objects.create(comment_author = author, comment_body = comment_message, comment_id = post_id)
+    comment.save()
+    return redirect(f'post/{post_id}')

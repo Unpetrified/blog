@@ -50,9 +50,9 @@
         </div>
         <img src="{{post.photo.url}}" alt="">
         <p>
-            {{post.content | truncatechars:200}}
+            <span>{{post.content | truncatechars:200}}</span>
+            <a href="post/{{post.id}}">Read more</a>
         </p>
-        <a href="post/{{post.id}}">Read more</a>
     </div>
 
     {% endfor %}

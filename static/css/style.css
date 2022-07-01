@@ -1,15 +1,15 @@
 :root {
     --headingColor: rgba(217, 217, 217);
-    --navColor: rgba(217, 217, 217, .9);
+    --navColor: var(--headingColor);
     --textColor: rgb(38, 38, 38);
     --bgColor: rgba(240, 242, 242);
-    --btnColor: rgb(25, 79, 255);
-    --btnHoverColor: rgb(0, 25, 107);
+    --btnColor: rgba(240, 240, 240, 0.94);
+    --btnHoverColor: rgb(25, 79, 255);
     --textHeadingColor: rgba(23, 5, 76);
     --headingHoverColor: rgba(242, 68, 5);
     --headingWeight: 900;
     --bodyTextSize: .7rem;
-    --logoWidth: 100%;
+    --logoWidth: 90%;
     --logoAspectR: 10/1;
     --oneRem: 1rem;
     --oneEm: 1em;
@@ -37,7 +37,9 @@ body {
 
 .page-heading {
     background-color: var(--headingColor);
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 img[alt=logo] {
@@ -118,7 +120,6 @@ nav {
     transform: scale(1, 0);
     transform-origin: top;
     transition: transform 300ms ease-out;
-    z-index: 100;
 }
 
 nav ul {
@@ -131,6 +132,7 @@ nav li {
     padding: 1em;
     width: 50%;
     margin: 0 25%;
+    color: var(--textColor);
 }
 
 nav li:first-child {
@@ -143,16 +145,24 @@ nav li:last-child {
 
 nav a {
     text-decoration: none;
-    color: var(--textColor);
     padding: .5em;
     opacity: 0;
+    color: var(--textColor);
     transition: opacity 150ms ease-out;
 }
 
 nav li:hover {
-    background-color: var(--btnColor);
+    background-color: var(--btnHoverColor);
     border-bottom-left-radius: 1em;
-    color: black;
+}
+
+nav li:hover > a {
+    color: white;
+}
+
+nav li > a:focus {
+    background-color: var(--btnHoverColor);
+    color: white;
 }
 
 /* navigation end  */
@@ -188,6 +198,7 @@ nav li:hover {
     margin: 0;
     color: var(--textHeadingColor);
     transition: color, 200ms ease-in;
+    text-transform: capitalize;
 }
 
 .card h3:hover {
@@ -209,28 +220,27 @@ nav li:hover {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: justify;
+    position: relative;
 }
 
-.card > a {
-    grid-column: 1/3;
-    justify-self: center;
-    color: var(--bgColor);
+.card p a {
+    color: var(--textColor);
     text-align: center;
     background-color: var(--btnColor);
-    border: none;
+    border: 1px solid black;
     padding: var(--readMoreSpec);
-    margin-top: var(--readMoreSpec);
     width: var(--readMoreWidth);
     border-radius: var(--readMoreSpec);
     transition: color, 200ms ease-in;
     font-weight: var(--readMoreWeight);
+    align-self: center;
+    position: absolute;
+    bottom: 0;
 }
 
-.card a:hover {
-    background-color: rgba(33, 46, 104);
+.card p a:hover {
+    background-color: var(--btnHoverColor);
     color: white;
 }
 
@@ -243,7 +253,7 @@ nav li:hover {
     margin: 2em 0;
     font-weight: 900;
     font-size: .5rem;
-    color: var(--btnColor);
+    color: var(--textHeadingColor);
     display: block;
 }
 
@@ -270,7 +280,7 @@ nav li:hover {
     text-decoration: none;
 }
 
-a img {
+#social > a img {
     width: var(--contactImgWidth);
     margin: var(--contactImgMargin);
 }
@@ -322,6 +332,7 @@ a img {
 
     nav a {
         opacity: 1;
+        font-size: 1.2rem;
     }
 
     .card h3 {

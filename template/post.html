@@ -53,7 +53,9 @@
         <h4>{{article.title}}</h4>
         <span>By {{article.author}}, {{article.date}}</span>
 
-        <p> {{article.content}} </p>
+        {% for content in contents %}
+            <p>{{content}}</p>
+        {% endfor %}
 
     </div>
 
@@ -65,9 +67,10 @@
         {% for comment in comments %}
 
         <div class="comment">
-            <h5>{{comment.name}}</h5>
+
+            <h5>{{comment.comment_author}}</h5>
             <p>
-                {{comment.text}}
+                {{comment.comment_body}}
             </p>
             <div>
                 {{comment.date}}
@@ -76,31 +79,53 @@
 
         {% endfor %}
         
-        <form action="comment" method="POST">
-            <input type="text" name="comment" placeholder="what do you think?">
-            <input type="submit" value="comment">
-        </form>
+        {% if user.is_authenticated %}
+        
+            <form action="/{{article.id}}" method="POST">    
+                {% csrf_token %}
+
+                <input type="text" name="comment" placeholder="what do you think?" required>
+                <input type="submit" value="comment">
+
+            </form>
+
+        {% else %}
+            
+            <form action="/{{article.id}}" method="POST">    
+                {% csrf_token %}
+
+                <input type="text" name="comment" placeholder="You must be logged in to leave a comment" disabled style="cursor: not-allowed;">
+                <input type="submit" value="comment" disabled style="background-color: var(--btnDisabled); cursor: not-allowed; color: var(--bgColor);">
+
+            </form>
+
+        {% endif %}
+
     </div>
 
     <div class="row">RECENT POST</div>
 
     {% for post in posts reversed %}
 
-    {% if post.id != article.id %}
+        {% if post.id != article.id %}
 
-    <div class="card">
-        <div class="head">
-            <a href="/post/{{post.id}}"><h3>{{post.title}}</h3></a>
+        <div class="card">
+
+            <div class="head">
+                <a href="/post/{{post.id}}"><h3>{{post.title}}</h3></a>
+            </div>
+            
+            <a href="/post/{{post.id}}">
+                <img src="{{post.photo.url}}" alt="">
+            </a>
+            
+            <p>
+                {{post.content | truncatechars:200}}
+            </p>
+
         </div>
-        <a href="/post/{{post.id}}">
-            <img src="{{post.photo.url}}" alt="">
-        </a>
-        <p>
-            {{post.content | truncatechars:200}}
-        </p>
-    </div>
 
-    {% endif %}
+        {% endif %}
 
     {% endfor %}
     
@@ -109,6 +134,7 @@
     </div>
 
     <div class="about-me">
+
         <img id="me" src="{% static 'media\Images\1655416720641.jpg' %}" alt="photo of me">
             
         <div>
@@ -116,6 +142,7 @@
             Gradually I started to learn and appreciate the processes behind its operation.
             The deeper I dive the more I believe it is magic &#128516
         </div>
+
     </div>
 
     <div class="row" id="contact">
@@ -123,11 +150,13 @@
     </div>
 
     <div class="row" id="social">
+
         <a href="https://www.facebook.com/Capt.kingsley"> <img src="{% static 'media\Logo\fb.png' %}" alt="facebook"> </a>
-                    <a href="https://twitter.com/tochukwu0bi?t=nh8C9LpLdH5GvDFaRp4bAQ&s=09"> <img src="{% static 'media\Logo\twitter.png' %}" alt="twitter"> </a>
-                    <a href="https://github.com/Unpetrified"> <img src="{% static 'media\Logo\github.png' %}" alt="instagram"> </a>
-                    <a href="https://www.linkedin.com/in/kingsley-obiefuna-a6223b1a6"> <img src="{% static 'media\Logo\linkedin.png' %}" alt="linkedin"> </a>
-                    <a href="https://wa.me/message/Y5YELZZRXJCXC1"> <img src="{% static 'media\Logo\whatapp.png' %}" alt="whatapp"> </a>
+        <a href="https://twitter.com/tochukwu0bi?t=nh8C9LpLdH5GvDFaRp4bAQ&s=09"> <img src="{% static 'media\Logo\twitter.png' %}" alt="twitter"> </a>
+        <a href="https://github.com/Unpetrified"> <img src="{% static 'media\Logo\github.png' %}" alt="instagram"> </a>
+        <a href="https://www.linkedin.com/in/kingsley-obiefuna-a6223b1a6"> <img src="{% static 'media\Logo\linkedin.png' %}" alt="linkedin"> </a>
+        <a href="https://wa.me/message/Y5YELZZRXJCXC1"> <img src="{% static 'media\Logo\whatapp.png' %}" alt="whatapp"> </a>
+
     </div>
 
     <script src="{% static 'js\index.js' %}"></script>

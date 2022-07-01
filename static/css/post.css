@@ -1,10 +1,11 @@
 :root {
     --headingColor: rgba(217, 217, 217);
-    --navColor: rgba(217, 217, 217, .9);
+    --navColor: var(--headingColor);
     --textColor: rgb(38, 38, 38);
     --bgColor: rgba(240, 242, 242);
-    --btnColor: rgb(25, 79, 255);
-    --btnHoverColor: rgb(0, 25, 107);
+    --btnColor: rgba(240, 240, 240, 0.94);
+    --btnHoverColor: rgb(25, 79, 255);
+    --btnDisabled: rgb(75, 75, 75);
     --textHeadingColor: rgba(23, 5, 76);
     --headingHoverColor: rgba(242, 68, 5);
     --headingWeight: 700;
@@ -40,7 +41,9 @@ body {
 
 .page-heading {
     background-color: var(--headingColor);
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 img[alt=logo] {
@@ -134,6 +137,7 @@ nav li {
     padding: 1em;
     width: 50%;
     margin: 0 25%;
+    color: var(--textColor);
 }
 
 nav li:first-child {
@@ -146,16 +150,24 @@ nav li:last-child {
 
 nav a {
     text-decoration: none;
-    color: var(--textColor);
     padding: .5em;
     opacity: 0;
     transition: opacity 150ms ease-out;
+    color: var(--textColor);
 }
 
 nav li:hover {
-    background-color: var(--btnColor);
+    background-color: var(--btnHoverColor);
     border-bottom-left-radius: 1em;
-    color: black;
+}
+
+nav li:hover > a {
+    color: white;
+}
+
+nav li > a:focus {
+    background-color: var(--btnHoverColor);
+    color: white;
 }
 
 /* navigation end  */
@@ -188,6 +200,7 @@ nav li:hover {
     font-size: var(--contentHeading);
     margin: 0;
     color: var(--textHeadingColor);
+    text-transform: capitalize;
 }
 
 .content span {
@@ -214,8 +227,9 @@ nav li:hover {
 }
 
 .comment h5 {
-    color: var(--btnColor);
+    color: var(--btnHoverColor);
     margin: 0;
+    text-transform: capitalize;
 }
 
 .comment p {
@@ -254,9 +268,9 @@ input[name=comment]:focus {
 input[type=submit] {
     margin: 0 1em;
     padding: .5em;
-    border: none;
+    border: 1px solid black;
     background-color: var(--btnColor);
-    color: var(--bgColor);
+    color: var(--textColor);
     font-size: smaller;
     border-radius: .2rem;
     position: absolute;
@@ -268,6 +282,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: var(--btnHoverColor);
+    color: white;
 }
 
 /* comment end  */
@@ -301,6 +316,7 @@ input[type=submit]:hover {
     margin: 0;
     color: var(--textHeadingColor);
     transition: color, 200ms ease-in;
+    text-transform: capitalize;
 }
 
 .card h3:hover {
@@ -331,7 +347,7 @@ input[type=submit]:hover {
     margin: 2em 0;
     font-weight: 900;
     font-size: .5rem;
-    color: var(--btnColor);
+    color: var(--textHeadingColor);
     display: block;
 }
 
@@ -410,6 +426,7 @@ a img {
 
     nav a {
         opacity: 1;
+        font-size: 1.2rem;
     }
 
     .content > h4 {
