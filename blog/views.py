@@ -90,3 +90,6 @@ def comment(request, post_id):
     comment = Comment.objects.create(comment_author = author, comment_body = comment_message, comment_id = post_id)
     comment.save()
     return redirect(f'post/{post_id}')
+
+def create_post(request):
+    return render(request, 'create_post.html')

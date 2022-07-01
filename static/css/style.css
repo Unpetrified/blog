@@ -160,11 +160,6 @@ nav li:hover > a {
     color: white;
 }
 
-nav li > a:focus {
-    background-color: var(--btnHoverColor);
-    color: white;
-}
-
 /* navigation end  */
 
 /* page heading end  */

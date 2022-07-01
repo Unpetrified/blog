@@ -35,6 +35,12 @@
                     <li> <a href="login">Login</a> </li>
 
                 {% endif %}
+
+                {% if user.is_superuser %}
+
+                    <li> <a href="create_post">Post</a> </li>
+
+                {% endif %}
                     
             </ul>
         </nav>

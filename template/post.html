@@ -10,12 +10,6 @@
     <title>Unpetrified | Post</title>
 </head>
 
-    {% if user.is_superuser %}
-        <script>
-            alert("Hello admin");
-        </script>
-    {% endif %}
-
     <div class="page-heading">
         
         <a href="/"><img src="{% static 'media\Logo\head.png' %}" alt="logo"></a>
@@ -38,6 +32,12 @@
                 {% else %}
 
                     <li> <a href="/login">Login</a> </li>
+
+                {% endif %}
+
+                {% if user.is_superuser %}
+
+                    <li> <a href="/create_post">Post</a> </li>
 
                 {% endif %}
                     
