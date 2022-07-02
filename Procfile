@@ -1,1 +1,1 @@
-web gunicorn kinger.wsgi --log-file -
+web gunicorn kinger.wsgi:application --log-file -
