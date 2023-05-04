@@ -1,0 +1,24 @@
+{% extends 'forms.html' %}
+{% load static %}
+{% block title %} <title>Unpetrified | Login</title> {% endblock %}
+{% block form %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+
+    <div class="register">Login</div>
+
+    {% if form.errors %}
+        <div class="error">Incorrect login details. <a href="{% url 'password_reset' %}">Forgot password?</a></div>
+    {% endif %}
+
+    {{form.as_p}}
+
+    <input type="submit" value="Login" class="btn">
+
+    <!-- important for page redirection -->
+    <input type="hidden" name="next" value="{{ next }}">
+
+    <div class="register-link">Not a member? <a href="{% url 'register' %}?next={% url 'login' %}">Register</a></div>
+
+</form>
+{% endblock %}
